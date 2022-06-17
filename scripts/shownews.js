@@ -7,7 +7,7 @@ function displayData(data){
     let container=document.querySelector("#detailed_news")
     let div=document.createElement("div")
    let image= document.createElement("img");
-   image.src=data.urlToImage;
+   image.src=data.image_url;
    let title=document.createElement("h3")
    title.innerText=data.title;
    let discreption=document.createElement("h4")

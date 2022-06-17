@@ -1,35 +1,40 @@
-//9e9b7d1c2042476586e5d3584b6e7cab
-   //d4ac6b2fbad9403e8172211680d85d0d
 
-   let url=`https://newsapi.org/v2/everything?q=cricket&apiKey=d4ac6b2fbad9403e8172211680d85d0d`;
-   let url1=`https://newsapi.org/v2/everything?q=football&apiKey=d4ac6b2fbad9403e8172211680d85d0d`;
-   let url2=`https://newsapi.org/v2/everything?q=chess&apiKey=d4ac6b2fbad9403e8172211680d85d0d`;
+   //9e9b7d1c2042476586e5d3584b6e7cab
+   //d4ac6b2fbad9403e8172211680d85d0d
+   //0ba8779ea8f04790a88db597c15778eb
+
+   let url=`https://newsdata.io/api/1/news?apikey=pub_841468277f89785bf20450632200f7c6e432&q=cricket `;
+   let url1=`https://newsdata.io/api/1/news?apikey=pub_841468277f89785bf20450632200f7c6e432&q=football `;
+   let url2=`https://newsdata.io/api/1/news?apikey=pub_841468277f89785bf20450632200f7c6e432&q=hockey `;
+
+  let left= document.getElementById("left");
+  let middle= document.getElementById("middle");
+  let right= document.getElementById("right");
    
     fetch(url).then(function(res){
         return res.json();
     }).then(function(res){
         console.log(res)
-        append(res.articles)
+        append(res.results)
     })
 
     fetch(url1).then(function(res){
         return res.json();
     }).then(function(res){
         console.log(res)
-        append1(res.articles)
+        append1(res.results)
     })
 
     fetch(url2).then(function(res){
         return res.json();
     }).then(function(res){
         console.log(res)
-        append2(res.articles)
+        append2(res.results)
     })
 
-  let left= document.getElementById("left");
-  let middle= document.getElementById("middle");
-  let right= document.getElementById("right");
+ 
 
+  
    function append(data){
     data.forEach(function(el){
           let div=document.createElement("div");
@@ -38,15 +43,18 @@
           let image=document.createElement("img");
           let description=document.createElement("h5");
           title.innerText=el.title;
-            image.src=el.urlToImage;
+            image.src=el.image_url;
             description.innerText=el.description;
+            let content=document.createElement("p");
+             content.innerText=data.content;
 
             div.append(image,title,description)
+           
             div.addEventListener("click",function(){
             fulldata(el)
         })
             left.append(div);
-       })
+       })    
    }
 
    function append1(data)
@@ -54,11 +62,12 @@
     data.forEach(function(el){
           let div=document.createElement("div");
           div.id="div";
+          
           let title=document.createElement("p")
           let image=document.createElement("img");
           let description=document.createElement("h5");
           title.innerText=el.title;
-            image.src=el.urlToImage;
+            image.src=el.image_url;
             description.innerText=el.description;
 
             div.append(image,title,description)
@@ -79,7 +88,7 @@ function append2(data){
           let image=document.createElement("img");
           let description=document.createElement("h5");
           title.innerText=el.title;
-            image.src=el.urlToImage;
+            image.src=el.image_url;
             description.innerText=el.description;
 
             div.append(image,title,description)
@@ -94,7 +103,6 @@ function  fulldata(ele){
     localStorage.setItem("data",JSON.stringify(ele))
     window.location.href="shownews.html";
 }
-
 
 let flag = true;
 
@@ -115,6 +123,8 @@ function dikhaobar() {
     let side_div = document.getElementById("side-div")
     side_div.style.display = "none"
     let videos = document.getElementById("popular-videos")
+
+
     videos.style.width="95%"
     videos.style.marginLeft = "5%"
     flag = true
