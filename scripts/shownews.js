@@ -7,7 +7,7 @@ function displayData(data){
     let container=document.querySelector("#detailed_news")
     let div=document.createElement("div")
    let image= document.createElement("img");
-   image.src=data.image_url;
+   image.src=data.urlToImage;
    let title=document.createElement("h3")
    title.innerText=data.title;
    let discreption=document.createElement("h4")
@@ -19,3 +19,5 @@ function displayData(data){
 }
 
 //border niye kaj korte hobe
+
+

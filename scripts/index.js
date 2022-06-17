@@ -3,36 +3,34 @@
    //d4ac6b2fbad9403e8172211680d85d0d
    //0ba8779ea8f04790a88db597c15778eb
 
-   let url=`https://newsdata.io/api/1/news?apikey=pub_84137a93f49ce5e89330912c8426605d9325&q=india `;
-   let url1=`https://newsdata.io/api/1/news?apikey=pub_84137a93f49ce5e89330912c8426605d9325&q=nature `;
-   let url2=`https://newsdata.io/api/1/news?apikey=pub_84137a93f49ce5e89330912c8426605d9325&q=sport `;
-
-  let left= document.getElementById("left");
-  let middle= document.getElementById("middle");
-  let right= document.getElementById("right");
+   let url=`https://newsapi.org/v2/top-headlines?country=in&apiKey=0ba8779ea8f04790a88db597c15778eb`;
+   let url1=`https://newsapi.org/v2/everything?q=politics&apiKey=0ba8779ea8f04790a88db597c15778eb`;
+   let url2=`https://newsapi.org/v2/everything?q=sports&apiKey=0ba8779ea8f04790a88db597c15778eb`;
    
     fetch(url).then(function(res){
         return res.json();
     }).then(function(res){
         console.log(res)
-        append(res.results)
+        append(res.articles)
     })
 
     fetch(url1).then(function(res){
         return res.json();
     }).then(function(res){
         console.log(res)
-        append1(res.results)
+        append1(res.articles)
     })
 
     fetch(url2).then(function(res){
         return res.json();
     }).then(function(res){
         console.log(res)
-        append2(res.results)
+        append2(res.articles)
     })
 
- 
+  let left= document.getElementById("left");
+  let middle= document.getElementById("middle");
+  let right= document.getElementById("right");
 
   
    function append(data){
@@ -43,7 +41,7 @@
           let image=document.createElement("img");
           let description=document.createElement("h5");
           title.innerText=el.title;
-            image.src=el.image_url;
+            image.src=el.urlToImage;
             description.innerText=el.description;
             let content=document.createElement("p");
              content.innerText=data.content;
@@ -67,7 +65,7 @@
           let image=document.createElement("img");
           let description=document.createElement("h5");
           title.innerText=el.title;
-            image.src=el.image_url;
+            image.src=el.urlToImage;
             description.innerText=el.description;
 
             div.append(image,title,description)
@@ -88,7 +86,7 @@ function append2(data){
           let image=document.createElement("img");
           let description=document.createElement("h5");
           title.innerText=el.title;
-            image.src=el.image_url;
+            image.src=el.urlToImage;
             description.innerText=el.description;
 
             div.append(image,title,description)
