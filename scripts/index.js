@@ -28,16 +28,11 @@
         append2(res.articles)
     })
 
-
-
-
-
   let left= document.getElementById("left");
   let middle= document.getElementById("middle");
   let right= document.getElementById("right");
 
   
-
    function append(data){
     data.forEach(function(el){
           let div=document.createElement("div");
@@ -57,12 +52,9 @@
             fulldata(el)
         })
             left.append(div);
-            
-
        })    
    }
 
-   
    function append1(data)
 {
     data.forEach(function(el){
@@ -81,8 +73,6 @@
             fulldata(el)
         })
             middle.append(div);
-            
-
        })
 
 }
@@ -104,20 +94,13 @@ function append2(data){
             fulldata(el)
         })
             right.append(div);
-            
-
        })
-
 }
-
-
 
 function  fulldata(ele){
     localStorage.setItem("data",JSON.stringify(ele))
     window.location.href="shownews.html";
 }
-
-
 
 let flag = true;
 

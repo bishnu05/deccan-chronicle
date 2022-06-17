@@ -96,8 +96,6 @@ function  fulldata(ele){
     window.location.href="shownews.html";
 }
 
-
-
 let flag = true;
 
 function dikhaobar() {

@@ -19,5 +19,3 @@ function displayData(data){
 }
 
 //border niye kaj korte hobe
-
-

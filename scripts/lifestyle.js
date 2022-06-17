@@ -97,8 +97,6 @@ function  fulldata(ele){
     window.location.href="shownews.html";
 }
 
-
-
 let flag = true;
 
 function dikhaobar() {
@@ -118,8 +116,6 @@ function dikhaobar() {
     let side_div = document.getElementById("side-div")
     side_div.style.display = "none"
     let videos = document.getElementById("popular-videos")
-
-
     videos.style.width="95%"
     videos.style.marginLeft = "5%"
     flag = true
